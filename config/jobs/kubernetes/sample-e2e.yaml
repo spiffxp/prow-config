@@ -77,6 +77,11 @@ presets:
   volumeMounts:
   - name: bazel-scratch
     mountPath: /bazel-scratch/.cache
+- labels:
+    preset-bazel-remote-cache-enabled: "true"
+  env:
+  - name: BAZEL_REMOTE_CACHE_ENABLED
+    value: "true"
 # volume mounts for kind
 - labels:
     preset-kind-volume-mounts: "true"
@@ -199,7 +204,7 @@ periodics:
     fork-per-release-periodic-interval: 1h 2h 6h 24h
   labels:
     preset-bazel-scratch-dir: "true"
-    # preset-bazel-remote-cache-enabled: "true"
+    preset-bazel-remote-cache-enabled: "true"
     preset-dind-enabled: "true"
     preset-kind-volume-mounts: "true"
   decorate: true
@@ -251,7 +256,7 @@ periodics:
     fork-per-release-periodic-interval: 1h 2h 6h 24h
   labels:
     preset-bazel-scratch-dir: "true"
-    # preset-bazel-remote-cache-enabled: "true"
+    preset-bazel-remote-cache-enabled: "true"
     preset-dind-enabled: "true"
     preset-kind-volume-mounts: "true"
   decorate: true
